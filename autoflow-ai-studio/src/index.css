@@ -1,0 +1,138 @@
+@import "tailwindcss";
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html, body, #root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background-color: #08080F;
+    color: #F1F5F9;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+/* React Flow overrides */
+.react-flow__background {
+  background-color: #08080F !important;
+}
+
+.react-flow__controls {
+  background: #12121E !important;
+  border: 1px solid #1E1E30 !important;
+  border-radius: 8px !important;
+  overflow: hidden;
+}
+
+.react-flow__controls-button {
+  background: #12121E !important;
+  border-color: #1E1E30 !important;
+  color: #64748B !important;
+  fill: #64748B !important;
+}
+
+.react-flow__controls-button:hover {
+  background: #1E1E30 !important;
+  fill: #F1F5F9 !important;
+}
+
+.react-flow__minimap {
+  background: #12121E !important;
+  border: 1px solid #1E1E30 !important;
+  border-radius: 8px !important;
+  overflow: hidden;
+}
+
+.react-flow__edge-path {
+  stroke: #2E2E50;
+  stroke-width: 2;
+}
+
+.react-flow__edge.selected .react-flow__edge-path,
+.react-flow__edge:hover .react-flow__edge-path {
+  stroke: #7C3AED;
+}
+
+.react-flow__connection-line {
+  stroke: #7C3AED;
+  stroke-width: 2;
+}
+
+.react-flow__handle {
+  width: 12px !important;
+  height: 12px !important;
+  background: #1E1E30 !important;
+  border: 2px solid #3B3B5C !important;
+  transition: all 0.2s;
+}
+
+.react-flow__handle:hover,
+.react-flow__handle-connecting {
+  background: #7C3AED !important;
+  border-color: #7C3AED !important;
+  transform: scale(1.3);
+}
+
+.react-flow__node.selected > div {
+  border-color: #7C3AED !important;
+  box-shadow: 0 0 0 1px #7C3AED, 0 0 20px rgba(124, 58, 237, 0.3) !important;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #12121E;
+}
+::-webkit-scrollbar-thumb {
+  background: #2E2E50;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #7C3AED;
+}
+
+/* Node status glow animations */
+@keyframes pulse-violet {
+  0%, 100% { box-shadow: 0 0 10px rgba(124, 58, 237, 0.4), 0 0 20px rgba(124, 58, 237, 0.2); }
+  50% { box-shadow: 0 0 20px rgba(124, 58, 237, 0.8), 0 0 40px rgba(124, 58, 237, 0.4); }
+}
+
+@keyframes pulse-green {
+  0%, 100% { box-shadow: 0 0 10px rgba(16, 185, 129, 0.3); }
+  50% { box-shadow: 0 0 20px rgba(16, 185, 129, 0.6); }
+}
+
+@keyframes flow-pulse {
+  0% { stroke-dashoffset: 100; opacity: 1; }
+  100% { stroke-dashoffset: 0; opacity: 0.5; }
+}
+
+.node-running {
+  animation: pulse-violet 1.2s ease-in-out infinite;
+  border-color: #7C3AED !important;
+}
+
+.node-done {
+  border-color: #10B981 !important;
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.3) !important;
+}
+
+.node-error {
+  border-color: #EF4444 !important;
+  box-shadow: 0 0 12px rgba(239, 68, 68, 0.3) !important;
+}
+
+.node-skipped {
+  border-color: #374151 !important;
+  opacity: 0.5;
+}
