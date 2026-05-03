@@ -1,4 +1,4 @@
-1. AI Workflow Studio
+AI Workflow Studio
 Project Overview
 AI Workflow Studio is a high-performance, full-stack automation platform designed to streamline developer workflows through a visual, node-based canvas. The system bridges the gap between complex AI model execution and user-friendly interface design, allowing for the rapid prototyping of AI-driven logic.
 
