@@ -353,7 +353,7 @@ export function Landing({ onGetStarted }: LandingProps) {
           <div className="p-1.5 rounded-lg bg-violet-600/20">
             <Zap size={18} className="text-violet-400" />
           </div>
-          <span className="text-sm font-bold">AutoFlow AI Studio</span>
+          <span className="text-sm font-bold">DraftMesh</span>
         </div>
         <Button onClick={onGetStarted} size="sm">
           Open Studio
@@ -375,27 +375,27 @@ export function Landing({ onGetStarted }: LandingProps) {
           <div className="text-center lg:text-left pt-4">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-violet-600/10 border border-violet-600/20 text-xs text-violet-300 mb-6">
               <Sparkles size={11} />
-              Visual AI Workflow Builder
+              DraftMesh Platform
             </div>
 
             <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6 leading-tight">
-              Build AI Pipelines
+              Operationalize AI Workflows
               <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-pink-400">
-                Without Writing Code
+                Build once. Automate every run.
               </span>
             </h1>
 
             <p className="text-base md:text-lg text-slate-400 max-w-xl mx-auto lg:mx-0 mb-8">
-              Drag, connect, and run automation workflows using AI nodes.
-              Summarize, rewrite, translate, and transform — all live in your browser.
+              DraftMesh helps teams eliminate repetitive prompt work by turning fragmented AI tasks
+              into structured, reusable visual pipelines.
             </p>
 
             <div className="grid grid-cols-3 gap-3 max-w-md mx-auto lg:mx-0 mb-8">
               {[
-                { value: '12+', label: 'Node Types' },
-                { value: '9', label: 'Starter Flows' },
-                { value: 'Live', label: 'AI Execution' },
+                { value: '12+', label: 'Workflow Nodes' },
+                { value: '9', label: 'Production Templates' },
+                { value: 'Live', label: 'Run Visibility' },
               ].map((item) => (
                 <div key={item.label} className="rounded-xl border border-[#1E1E30] bg-[#0C0C1A] px-3 py-2 text-center">
                   <p className="text-sm font-semibold text-slate-100">{item.value}</p>
@@ -406,14 +406,14 @@ export function Landing({ onGetStarted }: LandingProps) {
 
             <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
               <Button onClick={onGetStarted} size="lg">
-                Start Building Free
+                Start with DraftMesh
                 <ArrowRight size={16} />
               </Button>
               <Button variant="secondary" size="lg" onClick={() => {
                 document.getElementById('demo-section')?.scrollIntoView({ behavior: 'smooth' });
               }}>
                 <Play size={14} fill="currentColor" />
-                Live Demo
+                See Live Workflow
               </Button>
             </div>
           </div>
@@ -428,6 +428,34 @@ export function Landing({ onGetStarted }: LandingProps) {
         </motion.div>
       </section>
 
+      {/* ── Problem -> Solution -> Outcome ── */}
+      <section className="px-6 md:px-12 py-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {[
+            {
+              title: 'Problem',
+              desc: 'Teams copy prompts across tabs and tools, creating inconsistent quality and slow turnaround.',
+            },
+            {
+              title: 'Solution',
+              desc: 'DraftMesh turns prompt chains into visual, reusable workflows with clear logic and node-level outputs.',
+            },
+            {
+              title: 'Outcome',
+              desc: 'Faster delivery, predictable output quality, and repeatable AI operations your team can scale.',
+            },
+          ].map((item) => (
+            <div
+              key={item.title}
+              className="rounded-2xl border border-[#1E1E30] bg-[#0C0C1A] p-5"
+            >
+              <p className="text-[11px] uppercase tracking-widest text-violet-300">{item.title}</p>
+              <p className="text-sm text-slate-400 mt-2 leading-relaxed">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* ── Features ── */}
       <section className="px-6 md:px-12 py-20 max-w-5xl mx-auto">
         <motion.div
@@ -436,16 +464,16 @@ export function Landing({ onGetStarted }: LandingProps) {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="text-2xl md:text-3xl font-bold text-slate-100">Everything you need</h2>
-          <p className="text-slate-500 mt-3">Fully functional. No backend required.</p>
+          <h2 className="text-2xl md:text-3xl font-bold text-slate-100">Built for repeatable AI operations</h2>
+          <p className="text-slate-500 mt-3">From draft creation to team-ready output, in one visual system.</p>
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           {[
-            { icon: <GitBranch size={20} />, color: '#7C3AED', title: 'Visual Node Editor', desc: 'Drag-and-drop nodes to build complex pipelines. Connect them with animated edges.' },
-            { icon: <Zap size={20} />, color: '#F59E0B', title: 'Live Execution Engine', desc: 'Watch nodes execute step-by-step with real-time status indicators and output previews.' },
-            { icon: <Sparkles size={20} />, color: '#8B5CF6', title: 'AI-Powered Nodes', desc: 'Summarize, rewrite, translate, and run custom prompts with OpenAI — or use demo mode, zero setup.' },
-            { icon: <Shield size={20} />, color: '#10B981', title: 'Privacy First', desc: 'Everything runs in your browser. No backend, no server, no accounts required.' },
+            { icon: <GitBranch size={20} />, color: '#7C3AED', title: 'Visual Workflow Designer', desc: 'Map multi-step AI processes with branching logic and reusable node-based pipelines.' },
+            { icon: <Zap size={20} />, color: '#F59E0B', title: 'Execution Transparency', desc: 'Track every run node-by-node with clear statuses, outputs, and failure visibility.' },
+            { icon: <Sparkles size={20} />, color: '#8B5CF6', title: 'AI Task Orchestration', desc: 'Combine summarize, rewrite, translate, and custom prompt steps into one standardized flow.' },
+            { icon: <Shield size={20} />, color: '#10B981', title: 'Flexible Deployment Mode', desc: 'Run fully local for speed or connect backend auth and MongoDB persistence for team workflows.' },
           ].map((feat, i) => (
             <motion.div
               key={i}
@@ -475,17 +503,17 @@ export function Landing({ onGetStarted }: LandingProps) {
           viewport={{ once: true }}
           className="max-w-xl mx-auto p-10 rounded-3xl bg-gradient-to-b from-violet-600/15 to-transparent border border-violet-600/20"
         >
-          <h2 className="text-2xl font-bold text-slate-100 mb-3">Ready to build?</h2>
-          <p className="text-slate-500 text-sm mb-6">No signup. No backend. Works instantly in your browser.</p>
+          <h2 className="text-2xl font-bold text-slate-100 mb-3">Ready to standardize your AI workflow?</h2>
+          <p className="text-slate-500 text-sm mb-6">Start with templates, customize your flow, and run with confidence.</p>
           <Button onClick={onGetStarted} size="lg">
-            Open Studio Free
+            Launch DraftMesh
             <ArrowRight size={16} />
           </Button>
         </motion.div>
       </section>
 
       <footer className="px-6 py-6 border-t border-[#1E1E30] text-center text-xs text-slate-700">
-        AutoFlow AI Studio — Built with React, React Flow &amp; Framer Motion
+        DraftMesh — Visual AI workflow operations for modern teams
       </footer>
     </div>
   );

@@ -1,13 +1,13 @@
-# AutoFlow AI Studio
+# DraftMesh
 
-AutoFlow AI Studio is a portfolio-grade visual automation builder that runs fully in the browser.
-Users can create drag-and-drop workflows, connect nodes, execute pipelines step-by-step, and view outputs in real time.
+DraftMesh is a visual AI workflow platform for turning repetitive prompt tasks into reusable operational pipelines.
+Teams can design, run, and standardize content workflows with node-level visibility and predictable outputs.
 
 Stack:
 - React + Vite + TypeScript frontend (runs fully standalone in the browser)
 - localStorage persistence (no backend required to use the app)
-- Optional OpenAI integration
-- Full demo mode fallback when no API key is provided
+- Backend AI routing (`/api/ai/run`) with provider configuration in `server/.env`
+- Smart mock fallback when AI provider is unavailable
 - Optional Node.js + Express + MongoDB backend in `../server/` for user accounts and cloud workflow persistence
 
 See [`../ARCHITECTURE.md`](../ARCHITECTURE.md) for the full system diagram and workflow guide.
@@ -33,6 +33,7 @@ See [`../ARCHITECTURE.md`](../ARCHITECTURE.md) for the full system diagram and w
 - Shareable URL support (`?wf=...`)
 - Double-click canvas quick-add menu
 - Animated landing page demo pipeline
+- Professional SaaS messaging with clear problem -> solution -> outcome positioning
 
 ## Tech Stack
 
@@ -73,20 +74,19 @@ src/
 5. Downstream nodes receiving non-active branch input are marked `skipped`.
 6. Outputs are stored and displayed inside nodes.
 
-## Demo Mode vs OpenAI Mode
+## Problem It Solves
 
-### Demo Mode (default)
-- Active when no API key is saved in settings.
-- Uses local mock responses for:
-  - summarize
-  - rewrite
-  - custom prompt
-  - translate
+Most AI workflows break because teams copy prompts manually across multiple tools, causing:
+- inconsistent output quality
+- no repeatable process
+- poor run visibility
+- slow delivery for content and operations
 
-### OpenAI Mode
-- Paste API key in **Settings** inside Studio.
-- AI nodes call OpenAI chat completions endpoint.
-- If key is removed, app automatically falls back to demo mode.
+DraftMesh solves this by giving teams:
+- visual pipeline orchestration
+- reusable node-based workflow templates
+- backend-routed AI execution with clear runtime status
+- optional auth + cloud persistence via MongoDB
 
 ## Getting Started
 
@@ -147,7 +147,7 @@ Stored in browser localStorage:
 ## Important Notes
 
 - The frontend works fully standalone — no backend required.
-- An optional backend (`../server/`) adds user accounts + MongoDB workflow persistence.
+- The backend (`../server/`) powers AI execution, auth, and MongoDB persistence.
 - Shared URL payloads are base64-encoded in the query string for lightweight sharing.
 
 ## Current Lint Status
